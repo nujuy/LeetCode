@@ -1,5 +1,5 @@
 public  int lengthOfLongestSubstring(String s){
-  if(s==null && s.length == 0){
+  if(s==null && s.length() == 0){
     return 0; 
   }
   
@@ -10,12 +10,7 @@ public  int lengthOfLongestSubstring(String s){
   int tail = 0;
   
   while(head < s.length()){
-    if(!set.contains(s.charat(head)){
-      set.add(s.charAt(head));
-    }
-    head++;
-    
-    else{
+    if(set.contains(s.charAt(head))){
       if (max < head - tail){
         max = head - tail;
       }
@@ -25,7 +20,14 @@ public  int lengthOfLongestSubstring(String s){
       }
       tail++;
     }
+    
+    else{
+      set.add(s.charAt(head));
+    }
+    head++;
   }
   
+  max = Math.max(max, head-tail);
+  return max;
   
 }
