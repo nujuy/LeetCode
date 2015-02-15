@@ -19,7 +19,11 @@ public  int lengthOfLongestSubstring(String s){
       if (max < head - tail){
         max = head - tail;
       }
-      
+      while(s.charAt(tail)!=s.charAt(head)){
+        set.remove(s.charAt(tail));
+        tail++;
+      }
+      tail++;
     }
   }
   
