@@ -1,0 +1,24 @@
+string convert(string s, int nRows) {  
+      // Start typing your C/C++ solution below  
+      // DO NOT write int main() function    
+      if(nRows <= 1) return s;  
+      string result;  
+      if(s.size() ==0) return result;  
+      for(int i =0; i< nRows; i++)  
+      {  
+        for(int j =0, index =i; index < s.size();   
+            j++, index = (2*nRows-2)*j +i)  
+        {  
+          result.append(1, s[index]);  //red element
+          if(i ==0 || i == nRows-1)   //green element
+          {            
+            continue;  
+          }  
+          if(index+(nRows- i-1)*2 < s.size())  
+          {  
+            result.append(1, s[index+(nRows- i-1)*2]);  
+          }  
+        }  
+      }  
+      return result;  
+    }  
